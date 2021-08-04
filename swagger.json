@@ -1,1 +1,197 @@
-
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "SLEXN Servicer Bot API",
+    "version" : "0.9.0",
+    "title" : "Servicer Bot"
+  },
+  "host" : "115.178.76.47:49055",
+  "basePath" : "/v1",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/now" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "현재 당번",
+        "description" : "현재의 당번을 출력합니다.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/senior" : {
+      "get" : {
+        "tags" : [ "senior" ],
+        "summary" : "남은 Senior",
+        "description" : "당번 활동을 하기 전의 Senior 맴버를 출력합니다.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "senior" ],
+        "summary" : "Senior User 추가",
+        "description" : "Senior User를 추가합니다.",
+        "operationId" : "addSenior",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "name",
+          "description" : "추가 할 Senior",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/name"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "invalid input, object invalid"
+          },
+          "409" : {
+            "description" : "an existing item already exists"
+          }
+        }
+      }
+    },
+    "/junior" : {
+      "get" : {
+        "tags" : [ "junior" ],
+        "summary" : "남은 Junior",
+        "description" : "당번 활동을 하기 전의 Junior 맴버를 출력합니다.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "junior" ],
+        "summary" : "Junior User 추가",
+        "description" : "Junior User를 추가합니다.",
+        "operationId" : "addJunior",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "name",
+          "description" : "추가 할 Junior",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/name"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "invalid input, object invalid"
+          },
+          "409" : {
+            "description" : "an existing item already exists"
+          }
+        }
+      }
+    },
+    "/seniorafter" : {
+      "get" : {
+        "tags" : [ "senior" ],
+        "summary" : "Senior After",
+        "description" : "당번 활동을 마친 Senior 맴버를 출력합니다.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        },
+        "deprecated" : true
+      }
+    },
+    "/juniorafter" : {
+      "get" : {
+        "tags" : [ "junior" ],
+        "summary" : "Junior After",
+        "description" : "당번 활동을 마친 Junior 맴버를 출력합니다.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        },
+        "deprecated" : true
+      }
+    },
+    "/user" : {
+      "delete" : {
+        "tags" : [ "user" ],
+        "summary" : "User 삭제",
+        "description" : "등록된 User를 삭제합니다.",
+        "operationId" : "deleteUser",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "name",
+          "description" : "User 명",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/name"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "401" : {
+            "description" : "bad input parameter"
+          },
+          "404" : {
+            "description" : "not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "name" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
