@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "SLEXN Servicer Bot API",
-    "version" : "0.9.0",
+    "version" : "1.0.0",
     "title" : "Servicer Bot"
   },
   "host" : "115.178.76.47:49055",
@@ -130,8 +130,7 @@
           "400" : {
             "description" : "bad input parameter"
           }
-        },
-        "deprecated" : true
+        }
       }
     },
     "/juniorafter" : {
@@ -148,8 +147,7 @@
           "400" : {
             "description" : "bad input parameter"
           }
-        },
-        "deprecated" : true
+        }
       }
     },
     "/user" : {
