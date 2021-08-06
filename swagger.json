@@ -130,7 +130,8 @@
           "400" : {
             "description" : "bad input parameter"
           }
-        }
+        },
+        "deprecated" : true
       }
     },
     "/juniorafter" : {
@@ -147,7 +148,8 @@
           "400" : {
             "description" : "bad input parameter"
           }
-        }
+        },
+        "deprecated" : true
       }
     },
     "/user" : {
